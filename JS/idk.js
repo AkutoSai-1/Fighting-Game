@@ -7,8 +7,9 @@ canvas.height = 576
 c.fillRect(0, 0, canvas.width, canvas.height)
 
 class Sprite {
-   constructor(position) {
+   constructor({ position, velocity }) {
      this.position = position 
+     this.velocity = velocity 
    }
 
    draw() {
@@ -18,16 +19,28 @@ class Sprite {
 } 
 
 const player = new Sprite ({
+  position: {
     x: 0,
     y: 0,
+  },
+  velocity: {
+    x: 0,
+    y: 0 
+  }
+})
+
+const enemy = new Sprite ({
+  position: {
+    x: 400,
+    y: 100,
+  },
+  velocity: {
+    x: 0,
+    Y: 0 
+  }
 })
 
 player.draw ()
-
-const enemy = new Sprite ({
-  x: 400,
-  y: 100
-})
 
 enemy.draw ()
 
@@ -38,4 +51,4 @@ window.requestAnimationFrame(animate)
   console.log('Go')
 }
 
-animate() 
+animate()
