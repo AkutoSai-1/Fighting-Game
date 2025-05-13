@@ -26,9 +26,16 @@ player.draw ()
 
 const enemy = new Sprite ({
   x: 400,
-  y: 0,
+  y: 100
 })
 
 enemy.draw ()
 
 console.log(player)
+
+function animate() {
+window.requestAnimationFrame(animate)
+  console.log('Go')
+}
+
+animate() 
