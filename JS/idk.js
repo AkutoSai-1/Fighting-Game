@@ -23,11 +23,9 @@ class Sprite {
       this.position.y += this.velocity.y
 
       if (this.position.y + this.height + this.velocity.y >= canvas.height) {
-        
-      } {
         this.velocity.y = 0
       }
-      }
+    }
 }
  
 const player = new Sprite ({
@@ -59,8 +57,7 @@ function animate() {
   c.fillStyle = 'black'
   c.fillRect(0, 0, canvas.width, canvas.height)
   player.update()
-  enemy.update() 
-  console.log('Go')
+  enemy.update()
 }
 
 animate()
