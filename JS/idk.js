@@ -49,6 +49,8 @@ console.log(player)
 
 function animate() {
   window.requestAnimationFrame(animate)
+  c.fillStyle = 'Black'
+  c.fillRect(0, 0, canvas.width, canvas.height)
   player.update()
   enemy.update() 
   console.log('Go')
