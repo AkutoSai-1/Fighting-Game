@@ -50,7 +50,7 @@ console.log(player)
 function animate() {
   window.requestAnimationFrame(animate)
   player.update()
-  enemy.update()
+  enemy.update() 
   console.log('Go')
 }
 
