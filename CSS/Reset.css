@@ -47,9 +47,6 @@ table {
 	border-spacing: 0;
 }
 
-canvas {
-	top: 50%;
-	left: 50%;
-	transform: translate(-50%, -50%);
-	position: absolute;
+body {
+	background: aqua;
 }
