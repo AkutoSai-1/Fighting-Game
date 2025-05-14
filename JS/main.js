@@ -73,7 +73,7 @@ let speed = 4.5
 if (keys.shiftleft) speed = speed*2
 
   if (keys.a.pressed) {
-    player.velocity.x = speed
+    player.velocity.x = -speed
   } else if (keys.d.pressed) {
     player.velocity.x = speed
   }
