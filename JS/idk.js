@@ -32,7 +32,7 @@ class Sprite {
  
 const player = new Sprite ({
   position: {
-    x: 0,
+    x: 256,
     y: 100,
   },
   velocity: {
@@ -43,7 +43,7 @@ const player = new Sprite ({
 
 const enemy = new Sprite ({
   position: {
-    x: 400,
+    x: 768,
     y: 100,
   },
   velocity: {
