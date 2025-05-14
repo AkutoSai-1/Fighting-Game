@@ -44,7 +44,7 @@ const player = new Sprite ({
 const enemy = new Sprite ({
   position: {
     x: 768,
-    y: 100,
+    y: 100,             
   },
   velocity: {
     x: 0,
@@ -100,5 +100,4 @@ window.addEventListener('keyup', (event) => {
       keys.d.pressed = false
       break
   }
-  console.log ('event.key') 
 })
