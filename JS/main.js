@@ -55,12 +55,9 @@ const enemy = new Sprite ({
 console.log(player)
 
 const keys = {
-  a: {
-    pressed: false
-  },
-  d: {
-    pressed: false
-  }
+  a: {pressed: false},
+  d: {pressed: false},
+  shiftleft: {pressed: false}
 }
 
 function animate() {
@@ -72,10 +69,13 @@ function animate() {
 
   player.velocity.x = 0
   
+let speed = 4.5
+if (keys.shiftleft) speed = speed*2
+
   if (keys.a.pressed) {
-    player.velocity.x = -1.5
+    player.velocity.x = speed
   } else if (keys.d.pressed) {
-    player.velocity.x = 1.5
+    player.velocity.x = speed
   }
 }
 
