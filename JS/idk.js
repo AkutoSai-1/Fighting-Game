@@ -69,6 +69,8 @@ function animate() {
   c.fillRect(0, 0, canvas.width, canvas.height)
   player.update()
   enemy.update()
+
+  player.velocity.x = 0
   
   if (keys.a.pressed) {
     player.velocity.x = -1
@@ -88,7 +90,7 @@ window.addEventListener('keydown', (event) => {
       keys.d.pressed = true
       break
   }
-  console.log ('event.key') 
+  console.log ('event.key')
 })
 
 window.addEventListener('keyup', (event) => {
@@ -100,4 +102,5 @@ window.addEventListener('keyup', (event) => {
       keys.d.pressed = false
       break
   }
+  console.log ('event.key')
 })
