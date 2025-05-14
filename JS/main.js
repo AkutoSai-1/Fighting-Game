@@ -89,20 +89,26 @@ window.addEventListener('keydown', (event) => {
     case 'KeyD':
       keys.d.pressed = true
       break
+    case 'ShiftLeft':
+      keys.shiftleft.pressed = true
+      break
   }
   
-  console.log (event)
+  console.log (event.code)
 })
 
 window.addEventListener('keyup', (event) => {
-  switch (event.key) {
-    case 'a':
+  switch (event.code) {
+    case 'KeyA':
       keys.a.pressed = false
       break
-    case 'd':
+    case 'KeyD':
       keys.d.pressed = false
+      break
+    case 'ShiftLeft':
+      keys.shiftleft.pressed = false
       break
   }
   
-  console.log (event.key)
+  console.log (event.code)
 })
