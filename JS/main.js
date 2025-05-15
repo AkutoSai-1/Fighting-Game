@@ -114,18 +114,18 @@ window.addEventListener('keyup', (event) => {
 window.addEventListener('keydown', (event) => {
   switch (event.code) {
     case 'ArrowLeft':
-      keys.a.pressed = true
+      keys.ArrowLeft.pressed = true
       lastKey = 'ArrowLeft';
       break
     case 'ArrowRight':
-      keys.d.pressed = true
+      keys.ArrowRight.pressed = true
       lastKey = 'ArrowRight';
       break
     case 'ArrowUp':
       player.velocity.y = -10
       break
     case 'ShiftRight':
-      keys.shiftleft.pressed = true
+      keys.ShiftRight.pressed = true
       break
   }
   
@@ -134,14 +134,14 @@ window.addEventListener('keydown', (event) => {
 
 window.addEventListener('keyup', (event) => {
   switch (event.code) {
-    case 'ArrowLef':
-      keys.a.pressed = false
+    case 'ArrowLeft':
+      keys.ArrowLeft.pressed = false
       break
     case 'ArrowRight':
-      keys.d.pressed = false
+      keys.ArrowRight.pressed = false
       break
     case 'ShiftRight':
-      keys.shiftleft.pressed = false
+      keys.ShiftRight.pressed = false
       break
   }
   
