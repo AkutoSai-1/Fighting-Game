@@ -59,12 +59,23 @@ function animate() {
   
   let speed = 4.5
   if (keys.shiftleft.pressed) speed *= 1.3
+
+
   player.velocity.x = 0
 
+
+  // Player Movement
   if (keys.a.pressed && lastKey === 'a') {
     player.velocity.x = -speed
   } else if (keys.d.pressed && lastKey === 'd') {
     player.velocity.x = speed
+  }
+
+  // Enemy Movement
+  if (keys.ArrowLeft.pressed && enemy.lastKey === 'ArrowLeft') {
+    enemy.velocity.x = -speed
+  } else if (keys.ArrowRight.pressed && enemy.lastKey === 'ArrowRight') {
+    enemy.velocity.x = speed
   }
 }
 
@@ -103,7 +114,7 @@ window.addEventListener('keydown', (event) => {
       player.velocity.y = -10
       break
     case 'ShiftRight':
-      keys.ShiftRight.pressed = true
+      keys.shiftright.pressed = true
       break
   }
   
@@ -131,7 +142,7 @@ window.addEventListener('keyup', (event) => {
       keys.ArrowRight.pressed = false
       break
     case 'ShiftRight':
-      keys.ShiftRight.pressed = false 
+      keys.shiftright.pressed = false 
       break
   }
   
