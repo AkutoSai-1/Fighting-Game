@@ -60,7 +60,7 @@ function animate() {
   let speed = 4.5
   if (keys.shiftleft.pressed) speed *= 1.3
   player.velocity.x = 0
-  
+
   if (keys.a.pressed && lastKey === 'a') {
     player.velocity.x = -speed
   } else if (keys.d.pressed && lastKey === 'd') {
@@ -69,6 +69,8 @@ function animate() {
 }
 
 animate()
+
+// Player
 
 window.addEventListener('keydown', (event) => {
   switch (event.code) {
@@ -100,6 +102,45 @@ window.addEventListener('keyup', (event) => {
       keys.d.pressed = false
       break
     case 'ShiftLeft':
+      keys.shiftleft.pressed = false
+      break
+  }
+  
+  console.log (event.code)
+})
+
+// Enemy
+
+window.addEventListener('keydown', (event) => {
+  switch (event.code) {
+    case 'ArrowLeft':
+      keys.a.pressed = true
+      lastKey = 'ArrowLeft';
+      break
+    case 'ArrowRight':
+      keys.d.pressed = true
+      lastKey = 'ArrowRight';
+      break
+    case 'ArrowUp':
+      player.velocity.y = -10
+      break
+    case 'ShiftRight':
+      keys.shiftleft.pressed = true
+      break
+  }
+  
+  console.log (event.code)
+})
+
+window.addEventListener('keyup', (event) => {
+  switch (event.code) {
+    case 'ArrowLef':
+      keys.a.pressed = false
+      break
+    case 'ArrowRight':
+      keys.d.pressed = false
+      break
+    case 'ShiftRight':
       keys.shiftleft.pressed = false
       break
   }
