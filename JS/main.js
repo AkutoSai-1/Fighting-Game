@@ -88,32 +88,10 @@ window.addEventListener('keydown', (event) => {
     case 'ShiftLeft':
       keys.shiftleft.pressed = true
       break
-  }
-  
-  console.log (event.code)
-})
 
-window.addEventListener('keyup', (event) => {
-  switch (event.code) {
-    case 'KeyA':
-      keys.a.pressed = false
-      break
-    case 'KeyD':
-      keys.d.pressed = false
-      break
-    case 'ShiftLeft':
-      keys.shiftleft.pressed = false
-      break
-  }
-  
-  console.log (event.code)
-})
+      // Enemy
 
-// Enemy
-
-window.addEventListener('keydown', (event) => {
-  switch (event.code) {
-    case 'ArrowLeft':
+      case 'ArrowLeft':
       keys.ArrowLeft.pressed = true
       enemy.lastKey = 'ArrowLeft';
       break
@@ -134,7 +112,19 @@ window.addEventListener('keydown', (event) => {
 
 window.addEventListener('keyup', (event) => {
   switch (event.code) {
-    case 'ArrowLeft':
+    case 'KeyA':
+      keys.a.pressed = false
+      break
+    case 'KeyD':
+      keys.d.pressed = false
+      break
+    case 'ShiftLeft':
+      keys.shiftleft.pressed = false
+      break
+  
+      // Enemy
+
+  case 'ArrowLeft':
       keys.ArrowLeft.pressed = false
       break
     case 'ArrowRight':
