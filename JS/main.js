@@ -58,7 +58,7 @@ function animate() {
   enemy.update()
   
   let speed = 4.5
-  if (keys.shiftleft.pressed) speed *= 2
+  if (keys.shiftleft.pressed) speed *= 1.3
 
   player.velocity.x = 0
   
