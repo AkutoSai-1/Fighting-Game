@@ -31,25 +31,13 @@ class Sprite {
 }
  
 const player = new Sprite ({
-  position: {
-    x: 256,
-    y: 100,
-  },
-  velocity: {
-    x: 0,
-    y: 10 
-  }
+  position: { x: 256, y: 100 },
+  velocity: { x: 0, y: 10 }
 })
 
 const enemy = new Sprite ({
-  position: {
-    x: 768,
-    y: 100,             
-  },
-  velocity: {
-    x: 0,
-    y: 10 
-  }
+  position: { x: 768, y: 100 },
+  velocity: { x: 0, y: 10 }
 })
 
 console.log(player)
@@ -77,7 +65,7 @@ function animate() {
   if (keys.a.pressed && lastKey === 'a') {
     player.velocity.x = -speed
   } else if (keys.d.pressed && lastKey === 'd') {
-    player.velocity.x = speed 
+    player.velocity.x = speed
   }
 }
 
