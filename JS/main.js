@@ -60,22 +60,24 @@ const keys = {
   shiftleft: {pressed: false}
 }
 
+let lastKey;
+
 function animate() {
   window.requestAnimationFrame(animate)
   c.fillStyle = 'black'
   c.fillRect(0, 0, canvas.width, canvas.height)
   player.update()
   enemy.update()
+  
+  let speed = 4.5
+  if (keys.shiftleft.pressed) speed *= 2
 
   player.velocity.x = 0
   
-let speed = 4.5
-if (keys.shiftleft.pressed) speed = speed*2 
-
-  if (keys.a.pressed && lastKey === 'KeyA') {
+  if (keys.a.pressed && lastKey === 'a') {
     player.velocity.x = -speed
-  } else if (keys.d.pressed && lastKey === 'KeyD') {
-    player.velocity.x = speed
+  } else if (keys.d.pressed && lastKey === 'd') {
+    player.velocity.x = speed 
   }
 }
 
@@ -85,9 +87,11 @@ window.addEventListener('keydown', (event) => {
   switch (event.code) {
     case 'KeyA':
       keys.a.pressed = true
+      lastKey = 'a';
       break
     case 'KeyD':
       keys.d.pressed = true
+      lastKey = 'd';
       break
     case 'KeyW':
       player.velocity.y = -10

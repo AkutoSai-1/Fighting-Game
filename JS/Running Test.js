@@ -1,114 +1,103 @@
-const canvas = document.querySelector('canvas')
-const c = canvas.getContext ('2d')
+const canvas = document.querySelector('canvas');
+const c = canvas.getContext('2d');
 
-canvas.width = 1024
-canvas.height = 576
+canvas.width = 1024;
+canvas.height = 576;
 
-c.fillRect(0, 0, canvas.width, canvas.height)
+c.fillRect(0, 0, canvas.width, canvas.height);
 
-const gravity = 0.2 
+const gravity = 0.2;
 class Sprite {
-   constructor({ position, velocity }) {
-     this.position = position 
-     this.velocity = velocity 
-     this.height = 150
-   }
+    constructor({ position, velocity }) {
+        this.position = position;
+        this.velocity = velocity;
+        this.height = 150;
+    }
 
-   draw() {
-    c.fillStyle = 'Red'
-    c.fillRect(this.position.x, this.position.y, 50, this.height)
-  }
-  
+    draw() {
+        c.fillStyle = 'Red';
+        c.fillRect(this.position.x, this.position.y, 50, this.height);
+    }
+
     update() {
-      this.draw()
-      this.position.x += this.velocity.x
-      this.position.y += this.velocity.y
+        this.draw();
+        this.position.x += this.velocity.x;
+        this.position.y += this.velocity.y;
 
-      if (this.position.y + this.height + this.velocity.y >= canvas.height) {
-        this.velocity.y = 0
-      } else this.velocity.y += gravity
+        if (this.position.y + this.height + this.velocity.y >= canvas.height) {
+            this.velocity.y = 0;
+        } else this.velocity.y += gravity;
     }
 }
- 
-const player = new Sprite ({
-  position: {
-    x: 256,
-    y: 100,
-  },
-  velocity: {
-    x: 0,
-    y: 10 
-  }
-})
 
-const enemy = new Sprite ({
-  position: {
-    x: 768,
-    y: 100,             
-  },
-  velocity: {
-    x: 0,
-    y: 10 
-  }
-})
+const player = new Sprite({
+    position: { x: 256, y: 100 },
+    velocity: { x: 0, y: 10 }
+});
 
-console.log(player)
+const enemy = new Sprite({
+    position: { x: 768, y: 100 },
+    velocity: { x: 0, y: 10 }
+});
 
 const keys = {
-  a: { pressed: false },
-  d: { pressed: false },
-  shift: { pressed: false }
-}
+    a: { pressed: false },
+    d: { pressed: false },
+    shiftleft: { pressed: false }
+};
+
+let lastKey;
 
 function animate() {
-  window.requestAnimationFrame(animate)
-  c.fillStyle = 'black'
-  c.fillRect(0, 0, canvas.width, canvas.height)
-  player.update()
-  enemy.update()
+    window.requestAnimationFrame(animate);
+    c.fillStyle = 'black';
+    c.fillRect(0, 0, canvas.width, canvas.height);
+    player.update();
+    enemy.update();
 
- player.velocity.x = 0
+    let speed = 4.5;
+    if (keys.shiftleft.pressed) speed *= 2;
 
-let speed = 5 // Default walking speed
-if (keys.shift.pressed) speed = speed*1.5 // Running speed
+    player.velocity.x = 0;
 
-if (keys.a.pressed) {
-  player.velocity.x = -speed
-} else if (keys.d.pressed) {
-  player.velocity.x = speed
+    if (keys.a.pressed) {
+        player.velocity.x = -speed;
+    } else if (keys.d.pressed) {
+        player.velocity.x = speed;
+    }
 }
-}
 
-animate()
+animate();
 
 window.addEventListener('keydown', (event) => {
-  switch (event.code) {
-    case 'KeyA':
-      keys.a.pressed = true;
-      break;
-    case 'KeyD':
-      keys.d.pressed = true;
-      break;
-    case 'ShiftLeft':
-      keys.shift.pressed = true;
-      break;
-  }
-  
-  console.log (event.key)
-})
+    switch (event.code) {
+        case 'KeyA':
+            keys.a.pressed = true;
+            lastKey = 'a';
+            break;
+        case 'KeyD':
+            keys.d.pressed = true;
+            lastKey = 'd';
+            break;
+        case 'KeyW':
+            player.velocity.y = -10;
+            break;
+        case 'ShiftLeft':
+            keys.shiftleft.pressed = true;
+            break;
+    }
+});
 
 window.addEventListener('keyup', (event) => {
-  switch (event.code) {
-    case 'KeyA':
-      keys.a.pressed = false;
-      break;
-    case 'KeyD':
-      keys.d.pressed = false;
-      break;
-    case 'ShiftLeft':
-      keys.shift.pressed = false;
-      break;
-  }
-
-  console.log (event.key)
-})
+    switch (event.code) {
+        case 'KeyA':
+            keys.a.pressed = false;
+            break;
+        case 'KeyD':
+            keys.d.pressed = false;
+            break;
+        case 'ShiftLeft':
+            keys.shiftleft.pressed = false;
+            break;
+    }
+});
