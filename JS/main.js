@@ -115,11 +115,11 @@ window.addEventListener('keydown', (event) => {
   switch (event.code) {
     case 'ArrowLeft':
       keys.ArrowLeft.pressed = true
-      lastKey = 'ArrowLeft';
+      enemy.lastKey = 'ArrowLeft';
       break
     case 'ArrowRight':
       keys.ArrowRight.pressed = true
-      lastKey = 'ArrowRight';
+      enemy.lastKey = 'ArrowRight';
       break
     case 'ArrowUp':
       player.velocity.y = -10
@@ -141,7 +141,7 @@ window.addEventListener('keyup', (event) => {
       keys.ArrowRight.pressed = false
       break
     case 'ShiftRight':
-      keys.ShiftRight.pressed = false
+      keys.ShiftRight.pressed = false 
       break
   }
   
