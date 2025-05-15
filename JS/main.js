@@ -89,6 +89,9 @@ window.addEventListener('keydown', (event) => {
     case 'KeyD':
       keys.d.pressed = true
       break
+    case 'KeyW':
+      player.velocity.y = -10
+      break
     case 'ShiftLeft':
       keys.shiftleft.pressed = true
       break
