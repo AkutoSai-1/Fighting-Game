@@ -72,9 +72,9 @@ function animate() {
 let speed = 4.5
 if (keys.shiftleft.pressed) speed = speed*2 
 
-  if (keys.a.pressed && lastKey === 'a') {
+  if (keys.a.pressed && lastKey === 'KeyA') {
     player.velocity.x = -speed
-  } else if (keys.d.pressed && lastKey === 'd') {
+  } else if (keys.d.pressed && lastKey === 'KeyD') {
     player.velocity.x = speed
   }
 }
