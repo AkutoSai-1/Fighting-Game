@@ -2,33 +2,33 @@ window.addEventListener('keydown', (event) => {
   switch (event.code) {
     case 'KeyA':
       keys.a.pressed = true
-      player.lastKey = 'a';
+      Player1.lastKey = 'a';
       break
     case 'KeyD':
       keys.d.pressed = true
-      player.lastKey = 'd';
+      Player1.lastKey = 'd';
       break
     case 'KeyW':
-      player.velocity.y = -10
+      Player1.velocity.y = -10
       break
     case 'ShiftLeft':
       keys.shiftleft.pressed = true
       break
   }
     
-  // Enemy
+  // Player2
 
   switch (event.code) {  
     case 'ArrowLeft':
       keys.ArrowLeft.pressed = true 
-      enemy.lastKey = 'ArrowLeft';
+      Player2.lastKey = 'ArrowLeft';
       break
     case 'ArrowRight':
       keys.ArrowRight.pressed = true
-      enemy.lastKey = 'ArrowRight';
+      Player2.lastKey = 'ArrowRight';
       break
     case 'ArrowUp':
-      player.velocity.y = -10
+      Player1.velocity.y = -10
       break
     case 'ShiftRight':
       keys.shiftleft.pressed = true
@@ -51,7 +51,7 @@ window.addEventListener('keyup', (event) => {
       break
   }
   
-  // Enemy
+  // Player2
 
   switch (event.code) {  
     case 'ArrowLeft':

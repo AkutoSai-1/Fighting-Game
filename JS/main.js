@@ -30,17 +30,17 @@ class Sprite {
     }
 }
  
-const player = new Sprite ({
+const Player1 = new Sprite ({
   position: { x: 256, y: 100 },
   velocity: { x: 0, y: 10 }
 })
 
-const enemy = new Sprite ({
+const Player2 = new Sprite ({
   position: { x: 768, y: 100 },
   velocity: { x: 0, y: 10 }
 })
 
-console.log(player)
+console.log(Player1)
 
 const keys = {
   a: {pressed: false},
@@ -57,27 +57,28 @@ function animate() {
   window.requestAnimationFrame(animate)
   c.fillStyle = 'black'
   c.fillRect(0, 0, canvas.width, canvas.height)
-  player.update()
-  enemy.update()
+  Player1.update()
+  Player2.update()
   
   let speed = 4.5
   if (keys.shiftleft.pressed) speed *= 2
 
-  player.velocity.x = 0
+  Player1.velocity.x = 0
  
-  // Player
+  // Player1
 
-  if (keys.a.pressed && player.lastKey === 'a') {
-    player.velocity.x = -speed
-  } else if (keys.d.pressed && player.lastKey === 'd') {
-    player.velocity.x = speed
+  if (keys.a.pressed && Player1.lastKey === 'a') {
+    Player1.velocity.x = -speed
+  } else if (keys.d.pressed && Player1.lastKey === 'd') {
+    Player1.velocity.x = speed
   }
   
+  // Player2
   
-  if (keys.ArrowLeft.pressed && enemy.lastKey === 'a') {
-    enemy.velocity.x = -speed
-  } else if (keys.ArrowRight.pressed && enemy.lastKey === 'd') {
-    enemy.velocity.x = speed
+  if (keys.ArrowLeft.pressed && Player2.lastKey === 'a') {
+    Player2.velocity.x = -speed
+  } else if (keys.ArrowRight.pressed && Player2.lastKey === 'd') {
+    Player2.velocity.x = speed
   }
 }
 
