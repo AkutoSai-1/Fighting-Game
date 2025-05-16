@@ -64,11 +64,20 @@ function animate() {
   if (keys.shiftleft.pressed) speed *= 2
 
   player.velocity.x = 0
-  
+ 
+  // Player
+
   if (keys.a.pressed && player.lastKey === 'a') {
     player.velocity.x = -speed
   } else if (keys.d.pressed && player.lastKey === 'd') {
     player.velocity.x = speed
+  }
+  
+  
+  if (keys.ArrowLeft.pressed && enemy.lastKey === 'a') {
+    enemy.velocity.x = -speed
+  } else if (keys.ArrowRight.pressed && enemy.lastKey === 'd') {
+    enemy.velocity.x = speed
   }
 }
 
