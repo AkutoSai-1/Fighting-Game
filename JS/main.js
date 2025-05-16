@@ -65,9 +65,9 @@ function animate() {
 
   player.velocity.x = 0
   
-  if (keys.a.pressed && lastKey === 'a') {
+  if (keys.a.pressed && player.lastKey === 'a') {
     player.velocity.x = -speed
-  } else if (keys.d.pressed && lastKey === 'd') {
+  } else if (keys.d.pressed && player.lastKey === 'd') {
     player.velocity.x = speed
   }
 }
@@ -78,11 +78,11 @@ window.addEventListener('keydown', (event) => {
   switch (event.code) {
     case 'KeyA':
       keys.a.pressed = true
-      lastKey = 'a';
+      player.lastKey = 'a';
       break
     case 'KeyD':
       keys.d.pressed = true
-      lastKey = 'd';
+      player.lastKey = 'd';
       break
     case 'KeyW':
       player.velocity.y = -10
@@ -132,14 +132,9 @@ window.addEventListener('keyup', (event) => {
   switch (event.code) {  
     case 'ArrowLeft':
       keys.ArrowLeft.pressed = false
-      lastKey = 'ArrowLeft';
       break
     case 'ArrowRight':
       keys.ArrowRight.pressed = false
-      lastKey = 'ArrowRight';
-      break
-    case 'ArrowUp':
-      player.velocity.y = -10
       break
     case 'ShiftRight':
       keys.shiftleft.pressed = false
