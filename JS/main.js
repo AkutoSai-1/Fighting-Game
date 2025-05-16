@@ -64,6 +64,7 @@ function animate() {
   if (keys.shiftleft.pressed) speed *= 2
 
   Player1.velocity.x = 0
+  Player2.velocity.x = 0
  
   // Player1
 
