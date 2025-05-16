@@ -34,7 +34,7 @@ class Sprite {
  
 const Player1 = new Sprite ({
   position: { x: 256, y: 100 },
-  velocity: { x: 0, y: 10 }
+  velocity: { x: 0, y: 10 },
 })
 
 const Player2 = new Sprite ({
@@ -59,7 +59,7 @@ const keys = {
   ArrowLeft: {pressed: false},
   ArrowRight: {pressed: false},
   shiftleft: {pressed: false},
-  shiftright: {pressed: false}
+  Numpad0: {pressed: false}
 }
 
 let lastKey;
@@ -80,27 +80,28 @@ function animate() {
   Player1.update()
   Player2.update()
   
-  let speed = 4.5
-  if (keys.shiftleft.pressed) speed *= 2
-  if (keys.shiftright.pressed) speed *= 2
-
+  let Player1Sprint = 4.5
+  let Player2Sprint = 4.5
+  if (keys.shiftleft.pressed) Player1Sprint *= 2
+  if (keys.Numpad0.pressed) Player2Sprint *= 2
+  
   Player1.velocity.x = 0
   Player2.velocity.x = 0
  
   // Player1
 
   if (keys.a.pressed && Player1.lastKey === 'a') {
-    Player1.velocity.x = -speed
+    Player1.velocity.x = -Player1Sprint
   } else if (keys.d.pressed && Player1.lastKey === 'd') {
-    Player1.velocity.x = speed
+    Player1.velocity.x = Player1Sprint
   }
   
   // Player2
   
   if (keys.ArrowLeft.pressed && Player2.lastKey === 'ArrowLeft') {
-    Player2.velocity.x = -speed
+    Player2.velocity.x = -Player2Sprint
   } else if (keys.ArrowRight.pressed && Player2.lastKey === 'ArrowRight') {
-    Player2.velocity.x = speed
+    Player2.velocity.x = Player2Sprint
   }
 }
 
@@ -150,8 +151,8 @@ window.addEventListener('keydown', (event) => {
     case 'ArrowUp':
       Player2.velocity.y = -20
       break
-    case 'ShiftRight':
-      keys.shiftright.pressed = true
+    case 'Numpad0':
+      keys.Numpad0.pressed = true
       break
   }
   
@@ -183,8 +184,8 @@ window.addEventListener('keyup', (event) => {
     case 'ArrowRight':
       keys.ArrowRight.pressed = false
       break
-    case 'ShiftRight':
-      keys.shiftright.pressed = false
+    case 'Numpad0':
+      keys.Numpad0.pressed = false
       break
   }
 
