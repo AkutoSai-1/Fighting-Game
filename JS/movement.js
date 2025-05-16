@@ -72,7 +72,7 @@ window.addEventListener('keyup', (event) => {
       keys.ArrowRight.pressed = false
       break
     case 'ShiftRight':
-      keys.shiftleft.pressed = false
+      keys.shiftright.pressed = false
       break
   }
 
