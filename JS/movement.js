@@ -9,7 +9,7 @@ window.addEventListener('keydown', (event) => {
       Player1.lastKey = 'd';
       break
     case 'KeyW':
-      Player1.velocity.y = -10
+      Player1.velocity.y = -20
       break
     case 'ShiftLeft':
       keys.shiftleft.pressed = true
@@ -23,12 +23,12 @@ window.addEventListener('keydown', (event) => {
       keys.ArrowLeft.pressed = true 
       Player2.lastKey = 'ArrowLeft';
       break
-    case 'ArrowRight':
+    case 'ArrowRight': 
       keys.ArrowRight.pressed = true
       Player2.lastKey = 'ArrowRight';
       break
     case 'ArrowUp':
-      Player2.velocity.y = -10
+      Player2.velocity.y = -20
       break
     case 'ShiftRight':
       keys.shiftleft.pressed = true
