@@ -1,3 +1,14 @@
+const keys = {
+  a: {pressed: false},
+  d: {pressed: false},
+  shiftleft: {pressed: false},
+  ArrowLeft: {pressed: false},
+  ArrowRight: {pressed: false},
+  shiftleft: {pressed: false}
+}
+
+let lastKey;
+
 window.addEventListener('keydown', (event) => {
   switch (event.code) {
     case 'KeyA':
