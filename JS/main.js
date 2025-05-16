@@ -75,9 +75,9 @@ function animate() {
   
   // Player2
   
-  if (keys.ArrowLeft.pressed && Player2.lastKey === 'a') {
+  if (keys.ArrowLeft.pressed && Player2.lastKey === 'ArrowLeft') {
     Player2.velocity.x = -speed
-  } else if (keys.ArrowRight.pressed && Player2.lastKey === 'd') {
+  } else if (keys.ArrowRight.pressed && Player2.lastKey === 'ArrowRight') {
     Player2.velocity.x = speed
   }
 }

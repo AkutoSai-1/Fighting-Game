@@ -28,7 +28,7 @@ window.addEventListener('keydown', (event) => {
       Player2.lastKey = 'ArrowRight';
       break
     case 'ArrowUp':
-      Player1.velocity.y = -10
+      Player2.velocity.y = -10
       break
     case 'ShiftRight':
       keys.shiftleft.pressed = true
