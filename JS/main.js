@@ -45,6 +45,9 @@ console.log(player)
 const keys = {
   a: {pressed: false},
   d: {pressed: false},
+  shiftleft: {pressed: false},
+  ArrowLeft: {pressed: false},
+  ArrowRight: {pressed: false},
   shiftleft: {pressed: false}
 }
 
@@ -58,30 +61,18 @@ function animate() {
   enemy.update()
   
   let speed = 4.5
-  if (keys.shiftleft.pressed) speed *= 1.3
-
+  if (keys.shiftleft.pressed) speed *= 2
 
   player.velocity.x = 0
-
-
-  // Player Movement
+  
   if (keys.a.pressed && lastKey === 'a') {
     player.velocity.x = -speed
   } else if (keys.d.pressed && lastKey === 'd') {
     player.velocity.x = speed
   }
-
-  // Enemy Movement
-  if (keys.ArrowLeft.pressed && enemy.lastKey === 'ArrowLeft') {
-    enemy.velocity.x = -speed
-  } else if (keys.ArrowRight.pressed && enemy.lastKey === 'ArrowRight') {
-    enemy.velocity.x = speed
-  }
 }
 
 animate()
-
-// Player
 
 window.addEventListener('keydown', (event) => {
   switch (event.code) {
@@ -99,22 +90,24 @@ window.addEventListener('keydown', (event) => {
     case 'ShiftLeft':
       keys.shiftleft.pressed = true
       break
+  }
+    
+  // Enemy
 
-      // Enemy
-
-      case 'ArrowLeft':
-      keys.ArrowLeft.pressed = true
-      enemy.lastKey = 'ArrowLeft';
+  switch (event.code) {  
+    case 'ArrowLeft':
+      keys.ArrowLeft.pressed = true 
+      lastKey = 'ArrowLeft';
       break
     case 'ArrowRight':
       keys.ArrowRight.pressed = true
-      enemy.lastKey = 'ArrowRight';
+      lastKey = 'ArrowRight';
       break
     case 'ArrowUp':
       player.velocity.y = -10
       break
     case 'ShiftRight':
-      keys.shiftright.pressed = true
+      keys.shiftleft.pressed = true
       break
   }
   
@@ -132,19 +125,26 @@ window.addEventListener('keyup', (event) => {
     case 'ShiftLeft':
       keys.shiftleft.pressed = false
       break
+  }
   
-      // Enemy
+  // Enemy
 
-  case 'ArrowLeft':
+  switch (event.code) {  
+    case 'ArrowLeft':
       keys.ArrowLeft.pressed = false
+      lastKey = 'ArrowLeft';
       break
     case 'ArrowRight':
       keys.ArrowRight.pressed = false
+      lastKey = 'ArrowRight';
+      break
+    case 'ArrowUp':
+      player.velocity.y = -10
       break
     case 'ShiftRight':
-      keys.shiftright.pressed = false 
+      keys.shiftleft.pressed = false
       break
   }
-  
+
   console.log (event.code)
 })
