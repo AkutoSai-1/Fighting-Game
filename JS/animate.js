@@ -7,6 +7,7 @@ function animate() {
   
   let speed = 4.5
   if (keys.shiftleft.pressed) speed *= 2
+  if (keys.shiftright.pressed) speed *= 2
 
   Player1.velocity.x = 0
   Player2.velocity.x = 0
