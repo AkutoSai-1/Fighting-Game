@@ -51,6 +51,26 @@ console.log(Player1)
 
 
 
+// Keys
+
+const keys = {
+  a: {pressed: false},
+  d: {pressed: false},
+  ArrowLeft: {pressed: false},
+  ArrowRight: {pressed: false},
+  shiftleft: {pressed: false},
+  shiftright: {pressed: false}
+}
+
+let lastKey;
+
+// Keys
+
+
+
+
+
+
 // Animate Start
 
 function animate() {
@@ -95,18 +115,10 @@ animate()
 
 // Movement Start
 
-const keys = {
-  a: {pressed: false},
-  d: {pressed: false},
-  ArrowLeft: {pressed: false},
-  ArrowRight: {pressed: false},
-  shiftleft: {pressed: false},
-  shiftright: {pressed: false}
-}
-
-let lastKey;
-
 window.addEventListener('keydown', (event) => {
+
+  // Player1
+
   switch (event.code) {
     case 'KeyA':
       keys.a.pressed = true
@@ -147,6 +159,9 @@ window.addEventListener('keydown', (event) => {
 })
 
 window.addEventListener('keyup', (event) => {
+
+  // Player1
+
   switch (event.code) {
     case 'KeyA':
       keys.a.pressed = false
