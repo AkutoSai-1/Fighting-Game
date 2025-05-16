@@ -1,10 +1,10 @@
 const keys = {
   a: {pressed: false},
   d: {pressed: false},
-  shiftleft: {pressed: false},
   ArrowLeft: {pressed: false},
   ArrowRight: {pressed: false},
-  shiftleft: {pressed: false}
+  shiftleft: {pressed: false},
+  shiftright: {pressed: false}
 }
 
 let lastKey;
@@ -42,7 +42,7 @@ window.addEventListener('keydown', (event) => {
       Player2.velocity.y = -20
       break
     case 'ShiftRight':
-      keys.shiftleft.pressed = true
+      keys.shiftright.pressed = true
       break
   }
   
