@@ -73,7 +73,7 @@ window.addEventListener('keyup', (event) => {
       break
     case 'ShiftRight':
       keys.shiftright.pressed = false
-      
+      break
   }
 
   console.log (event.code)
