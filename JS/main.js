@@ -14,6 +14,8 @@ class Sprite {
      this.position = position 
      this.velocity = velocity 
      this.height = 150
+     this.lastKey
+     this.attackBox
    }
 
    draw() {
@@ -61,8 +63,6 @@ const keys = {
   shiftleft: {pressed: false},
   Numpad0: {pressed: false}
 }
-
-let lastKey;
 
 // Keys
 
