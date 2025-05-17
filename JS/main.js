@@ -119,6 +119,8 @@ function animate() {
   } else if (keys.ArrowRight.pressed && Player2.lastKey === 'ArrowRight') {
     Player2.velocity.x = Player2Sprint
   }
+
+  // Detect Collision
 }
 
 animate()
