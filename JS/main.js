@@ -125,8 +125,9 @@ function animate() {
 
   if (
     Player1.attackBox.position.x + Player1.attackBox.width >= Player2.position.x &&
-    Player1.attackBox.position.x <= Player1.attackBox.width >= Player2.position.x &&
-    Player1.attackBox.position.x + Player1.attackBox.width >= Player2.position.x
+    Player1.attackBox.position.x <= Player2.position.x + Player2.width &&
+    Player1.attackBox.position.y + Player1.attackBox.height >= Player2.position.y &&
+    Player1.attackBox.position.y <= Player2.position.y + Player2.height
   ) {
     console.log('Haikyuu!!')
   }
