@@ -148,7 +148,7 @@ function animate() {
     Player1.attackBox.position.y <= Player2.position.y + Player2.height &&
     this.isAttacking
   ) {
-    this.isAttacking = false
+    Player1.isAttacking = false
     console.log('Attack')
   }
 
