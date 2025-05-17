@@ -17,6 +17,7 @@ class Sprite {
      this.height = 150
      this.lastKey
      this.color = color
+     this.isAttacking
      this.attackBox = {
       position: this.position, 
       width: 100,
@@ -39,6 +40,10 @@ class Sprite {
   
   }
   
+
+  // Update
+
+
     update() {
       this.draw()
       this.position.x += this.velocity.x
@@ -48,6 +53,19 @@ class Sprite {
         this.velocity.y = 0
       } else this.velocity.y += gravity
     }
+
+
+    // attack
+
+    attack() {
+      this.isAttacking = true
+      setTimeout(() => {
+        this.isAttacking = false 
+      }, 100);
+    }
+    
+
+
 }
  
 const Player1 = new Sprite ({
@@ -127,9 +145,11 @@ function animate() {
     Player1.attackBox.position.x + Player1.attackBox.width >= Player2.position.x &&
     Player1.attackBox.position.x <= Player2.position.x + Player2.width &&
     Player1.attackBox.position.y + Player1.attackBox.height >= Player2.position.y &&
-    Player1.attackBox.position.y <= Player2.position.y + Player2.height
+    Player1.attackBox.position.y <= Player2.position.y + Player2.height &&
+    this.isAttacking
   ) {
-    console.log('Haikyuu!!')
+    this.isAttacking = false
+    console.log('Attack')
   }
 
 
@@ -164,6 +184,9 @@ window.addEventListener('keydown', (event) => {
       break
     case 'ShiftLeft':
       keys.shiftleft.pressed = true
+      break
+    case 'KeyU':
+      Player1.attack ()
       break
   }
     
