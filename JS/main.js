@@ -15,12 +15,20 @@ class Sprite {
      this.velocity = velocity 
      this.height = 150
      this.lastKey
-     this.attackBox
+     this.attackBox = {
+      position: this.position, 
+      width: 100,
+      height: 50
+     }
    }
 
    draw() {
     c.fillStyle = 'Red'
     c.fillRect(this.position.x, this.position.y, 50, this.height)
+
+    // AttackBox
+    c.fillRect()
+  
   }
   
     update() {
