@@ -13,6 +13,7 @@ class Sprite {
    constructor({ position, velocity, color = 'Red' }) {
      this.position = position 
      this.velocity = velocity 
+     this.width = 50
      this.height = 150
      this.lastKey
      this.color = color
@@ -25,7 +26,7 @@ class Sprite {
 
    draw() {
     c.fillStyle = this.color
-    c.fillRect(this.position.x, this.position.y, 50, this.height)
+    c.fillRect(this.position.x, this.position.y, this.width, this.height)
 
     // AttackBox
     c.fillStyle = 'Green'
@@ -121,6 +122,16 @@ function animate() {
   }
 
   // Detect Collision
+
+  if (
+    Player1.attackBox.position.x + Player1.attackBox.width >= Player2.position.x &&
+    Player1.attackBox.position.x <= Player1.attackBox.width >= Player2.position.x &&
+    Player1.attackBox.position.x + Player1.attackBox.width >= Player2.position.x
+  ) {
+    console.log('Haikyuu!!')
+  }
+
+
 }
 
 animate()
