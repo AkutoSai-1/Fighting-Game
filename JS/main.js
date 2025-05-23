@@ -18,12 +18,13 @@ class Sprite {
     this.health = 100;
     this.lastKey;
     this.color = color;
+    this.isJumping = false;
+    this.jumpKeyPressed = false;
+    this.jumpCount = 0;
+    this.maxJumps = 2;
     this.isAttacking;
     this.attackBox = {
-      position: {
-        x: this.position.x,
-        y: this.position.y,
-      },
+      position: { x: this.position.x, y: this.position.y },
       offset,
       width: 100,
       height: 50,
@@ -58,9 +59,26 @@ class Sprite {
     this.position.x += this.velocity.x;
     this.position.y += this.velocity.y;
 
-    if (this.position.y + this.height + this.velocity.y >= canvas.height) {
+    if (this.position.y + this.height >= canvas.height) {
       this.velocity.y = 0;
-    } else this.velocity.y += gravity;
+      this.isJumping = false;
+      this.jumpCount = 0;
+      this.position.y = canvas.height - this.height;
+
+      if (this.jumpKeyPressed) {
+        this.jump();
+      }
+    } else {
+      this.velocity.y += gravity;
+    }
+  }
+
+  jump() {
+    if (this.jumpCount < this.maxJumps) {
+      this.velocity.y = -15;
+      this.isJumping = true;
+      this.jumpCount++;
+    }
   }
 
   attack() {
@@ -84,8 +102,6 @@ const Player2 = new Sprite({
   offset: { x: -50, y: 0 },
 });
 
-// Main End
-
 // Keys
 
 const keys = {
@@ -96,8 +112,6 @@ const keys = {
   shiftleft: { pressed: false },
   Numpad0: { pressed: false },
 };
-
-// Keys
 
 // Collision
 
@@ -149,10 +163,7 @@ function animate() {
   // Detect Collision
 
   if (
-    RectCollision({
-      rectangle1: Player1,
-      rectangle2: Player2,
-    }) &&
+    RectCollision({ rectangle1: Player1, rectangle2: Player2 }) &&
     Player1.isAttacking
   ) {
     Player1.isAttacking = false;
@@ -163,10 +174,7 @@ function animate() {
   }
 
   if (
-    RectCollision({
-      rectangle1: Player2,
-      rectangle2: Player1,
-    }) &&
+    RectCollision({ rectangle1: Player2, rectangle2: Player1 }) &&
     Player2.isAttacking
   ) {
     Player2.isAttacking = false;
@@ -178,8 +186,6 @@ function animate() {
 }
 
 animate();
-
-// Animate End
 
 // Movement Start
 
@@ -196,7 +202,8 @@ window.addEventListener("keydown", (event) => {
       Player1.lastKey = "d";
       break;
     case "KeyW":
-      Player1.velocity.y = -20;
+      Player1.jumpKeyPressed = true;
+      Player1.jump();
       break;
     case "ShiftLeft":
       keys.shiftleft.pressed = true;
@@ -218,7 +225,8 @@ window.addEventListener("keydown", (event) => {
       Player2.lastKey = "ArrowRight";
       break;
     case "ArrowUp":
-      Player2.velocity.y = -20;
+      Player2.jumpKeyPressed = true;
+      Player2.jump();
       break;
     case "Numpad0":
       keys.Numpad0.pressed = true;
@@ -236,6 +244,9 @@ window.addEventListener("keyup", (event) => {
     case "KeyD":
       keys.d.pressed = false;
       break;
+    case "KeyW":
+      Player1.jumpKeyPressed = false;
+      break;
     case "ShiftLeft":
       keys.shiftleft.pressed = false;
       break;
@@ -250,6 +261,9 @@ window.addEventListener("keyup", (event) => {
     case "ArrowRight":
       keys.ArrowRight.pressed = false;
       break;
+    case "ArrowUp":
+      Player2.jumpKeyPressed = false;
+      break;
     case "Numpad0":
       keys.Numpad0.pressed = false;
       break;
@@ -258,5 +272,3 @@ window.addEventListener("keyup", (event) => {
       break;
   }
 });
-
-// Movement End
