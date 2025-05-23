@@ -127,25 +127,30 @@ function RectCollision({ rectangle1, rectangle2 }) {
   );
 }
 
+function determineWinner({ Player1, Player2 }) {
+  document.querySelector("#Game-Over").style.display = "flex";
+  if (Player1.health === Player2.health) {
+    document.querySelector("#Game-Over").innerHTML = "Tie!!";
+  } else if (Player1.health > Player2.health) {
+    document.querySelector("#Game-Over").innerHTML = "Player 1 Wins!!";
+  } else if (Player1.health < Player2.health) {
+    document.querySelector("#Game-Over").innerHTML = "Player 2 Wins!!";
+  }
+}
+
 // Timer
 
-let Timer = 10;
+let Timer = 5;
+let Timerid;
 function decreaseTimer() {
   if (Timer > 0) {
-    setTimeout(decreaseTimer, 1000);
+    Timerid = setTimeout(decreaseTimer, 1000);
     Timer--;
     document.querySelector("#Timer").innerHTML = Timer;
   }
 
   if (Timer === 0) {
-    document.querySelector("#Game-Over").style.display = "flex";
-    if (Player1.health === Player2.health) {
-      document.querySelector("#Game-Over").innerHTML = "Tie!!";
-    } else if (Player1.health > Player2.health) {
-      document.querySelector("#Game-Over").innerHTML = "Player 1 Wins!!";
-    } else if (Player1.health < Player2.health) {
-      document.querySelector("#Game-Over").innerHTML = "Player 2 Wins!!";
-    }
+    determineWinner({ Player1, Player2 });
   }
 }
 
@@ -206,6 +211,11 @@ function animate() {
     document.querySelector("#Player1-Health-Bar").style.width =
       Player1.health + "%";
     console.log("%cOn Titan!!", "color:cyan");
+  }
+
+  // End Game
+  if (Player1.health <= 0 || Player2.health <= 0) {
+    determineWinner({ Player1, Player2 });
   }
 }
 
