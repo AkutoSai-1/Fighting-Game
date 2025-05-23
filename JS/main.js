@@ -136,8 +136,16 @@ function decreaseTimer() {
     Timer--;
     document.querySelector("#Timer").innerHTML = Timer;
   }
-  if (Player1.health === Player2.health) {
-    console.log("Tie!");
+
+  if (Timer === 0) {
+    document.querySelector("#Game-Over").style.display = "flex";
+    if (Player1.health === Player2.health) {
+      document.querySelector("#Game-Over").innerHTML = "Tie!!";
+    } else if (Player1.health > Player2.health) {
+      document.querySelector("#Game-Over").innerHTML = "Player 1 Wins!!";
+    } else if (Player1.health < Player2.health) {
+      document.querySelector("#Game-Over").innerHTML = "Player 2 Wins!!";
+    }
   }
 }
 
