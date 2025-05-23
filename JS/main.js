@@ -144,7 +144,7 @@ let Timer = 5;
 let Timerid;
 function decreaseTimer() {
   if (Timer > 0) {
-    Timer = setTimeout(decreaseTimer, 1000);
+    Timerid = setTimeout(decreaseTimer, 1000);
     Timer--;
     document.querySelector("#Timer").innerHTML = Timer;
   }
