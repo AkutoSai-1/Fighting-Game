@@ -127,6 +127,22 @@ function RectCollision({ rectangle1, rectangle2 }) {
   );
 }
 
+// Timer
+
+let Timer = 10;
+function decreaseTimer() {
+  if (Timer > 0) {
+    setTimeout(decreaseTimer, 1000);
+    Timer--;
+    document.querySelector("#Timer").innerHTML = Timer;
+  }
+  if (Player1.health === Player2.health) {
+    console.log("Tie!");
+  }
+}
+
+decreaseTimer();
+
 // Animate Start
 
 function animate() {
