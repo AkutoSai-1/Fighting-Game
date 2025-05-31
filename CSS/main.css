@@ -1,0 +1,74 @@
+@font-face {
+  font-family: DotGothic16;
+  src: url(../Fonts/DotGothic16-Regular.ttf);
+}
+
+#Con {
+  position: relative;
+  display: inline-block;
+}
+
+#Canvas_Con {
+  position: absolute;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Player1 Health */
+
+#Player1-Health-Bar {
+  width: 100%;
+  height: 30px;
+  background-image: linear-gradient(to left, #00ff00, #00c000, #008000);
+}
+
+#Player1-Health-BG {
+  display: flex;
+  justify-content: flex-end;
+  background-image: linear-gradient(to left, yellow, #ff681f);
+  width: 100%;
+  height: 30px;
+}
+
+/* Timer */
+
+#Timer {
+  background-color: red;
+  width: 100px;
+  height: 100px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  font-family: "DotGothic16", sans-serif;
+  font-weight: 800;
+  font-size: 36px;
+}
+
+/* Player2 Health */
+
+#Player2-Health-Bar {
+  width: 100%;
+  height: 30px;
+  background-image: linear-gradient(to right, #00ff00, #00c000, #008000);
+}
+
+#Player2-Health-BG {
+  display: flex;
+  justify-content: flex-start;
+  background-image: linear-gradient(to right, yellow, #ff681f);
+  width: 100%;
+  height: 30px;
+}
+
+#Game-Over {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  color: white;
+  font: 96px "DotGothic16";
+  inset: 0;
+}
