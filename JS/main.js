@@ -142,7 +142,7 @@ function determineWinner({ Player1, Player2, Timerid }) {
 
 // Timer
 
-let Timer = 10;
+let Timer = 31;
 let Timerid;
 function decreaseTimer() {
   if (Timer > 0) {
@@ -150,7 +150,7 @@ function decreaseTimer() {
     Timer--;
     document.querySelector("#Timer").innerHTML = Timer;
 
-    if (Timer <= 3) {
+    if (Timer <= 10) {
   document.querySelector("#Timer").classList.add("timer-warning");
 }
 
