@@ -129,7 +129,8 @@ function RectCollision({ rectangle1, rectangle2 }) {
 
 function determineWinner({ Player1, Player2, Timerid }) {
   clearTimeout(Timerid)
-  document.querySelector("#Game-Over").style.display = "flex";
+ const gameOverElement = document.querySelector("#Game-Over");
+  gameOverElement.classList.add("show");
   if (Player1.health === Player2.health) {
     document.querySelector("#Game-Over").innerHTML = "Tie!!";
   } else if (Player1.health > Player2.health) {
@@ -148,7 +149,14 @@ function decreaseTimer() {
     Timerid = setTimeout(decreaseTimer, 1000);
     Timer--;
     document.querySelector("#Timer").innerHTML = Timer;
+
+    if (Timer <= 3) {
+  document.querySelector("#Timer").classList.add("timer-warning");
+}
+
   }
+
+  
 
   if (Timer === 0) {
     determineWinner({ Player1, Player2, Timerid });
@@ -217,7 +225,6 @@ function animate() {
   // End Game
   if (Player1.health <= 0 || Player2.health <= 0) {
     determineWinner({ Player1, Player2, Timerid });
-    document.querySelector("#Game-Over").classList.add("show");
   }
 }
 
