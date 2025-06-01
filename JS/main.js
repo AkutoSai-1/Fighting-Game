@@ -128,6 +128,7 @@ function RectCollision({ rectangle1, rectangle2 }) {
 }
 
 function determineWinner({ Player1, Player2, Timerid }) {
+  clearTimeout(Timerid)
   document.querySelector("#Game-Over").style.display = "flex";
   if (Player1.health === Player2.health) {
     document.querySelector("#Game-Over").innerHTML = "Tie!!";
@@ -140,7 +141,7 @@ function determineWinner({ Player1, Player2, Timerid }) {
 
 // Timer
 
-let Timer = 5;
+let Timer = 10;
 let Timerid;
 function decreaseTimer() {
   if (Timer > 0) {
@@ -150,7 +151,7 @@ function decreaseTimer() {
   }
 
   if (Timer === 0) {
-    determineWinner({ Player1, Player2 });
+    determineWinner({ Player1, Player2, Timerid });
   }
 }
 
