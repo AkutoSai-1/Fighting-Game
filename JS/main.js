@@ -127,7 +127,7 @@ function RectCollision({ rectangle1, rectangle2 }) {
   );
 }
 
-function determineWinner({ Player1, Player2 }) {
+function determineWinner({ Player1, Player2, Timerid }) {
   document.querySelector("#Game-Over").style.display = "flex";
   if (Player1.health === Player2.health) {
     document.querySelector("#Game-Over").innerHTML = "Tie!!";
