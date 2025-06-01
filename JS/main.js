@@ -216,7 +216,7 @@ function animate() {
 
   // End Game
   if (Player1.health <= 0 || Player2.health <= 0) {
-    determineWinner({ Player1, Player2 });
+    determineWinner({ Player1, Player2, Timerid });
   }
 }
 
