@@ -10,14 +10,14 @@ c.fillRect(0, 0, canvas.width, canvas.height);
 
 const gravity = 0.7;
 
-const Player1 = new Sprite({
+const Player1 = new Fighter({
   position: { x: 256, y: 100 },
   velocity: { x: 0, y: 10 },
   color: "Blue",
   offset: { x: 0, y: 0 },
 });
 
-const Player2 = new Sprite({
+const Player2 = new Fighter({
   position: { x: 768, y: 100 },
   velocity: { x: 0, y: 10 },
   offset: { x: -50, y: 0 },
