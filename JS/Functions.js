@@ -27,7 +27,7 @@ function determineWinner({ Player1, Player2, Timerid }) {
 
 // Timer
 
-let Timer = 60;
+let Timer = 15;
 let Timerid;
 function decreaseTimer() {
   if (Timer > 0) {
