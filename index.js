@@ -15,7 +15,7 @@ const background = new Sprite({
     x: 0,
     y: 0,
   },
-  imageSrc: "./Asset/soak_woods_v1.0/background/background.png",
+  imageSrc: "./Assets/oak_woods_v1.0/background/background.png",
 });
 
 const Player1 = new Fighter({
@@ -42,7 +42,6 @@ const keys = {
   Numpad0: { pressed: false },
 };
 
-
 decreaseTimer();
 
 // Animate Start
@@ -51,6 +50,7 @@ function animate() {
   window.requestAnimationFrame(animate);
   c.fillStyle = "black";
   c.fillRect(0, 0, canvas.width, canvas.height);
+  background.update();
   Player1.update();
   Player2.update();
 
