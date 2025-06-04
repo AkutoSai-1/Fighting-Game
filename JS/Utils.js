@@ -35,7 +35,7 @@ function decreaseTimer() {
     Timer--;
     document.querySelector("#Timer").innerHTML = Timer;
 
-    if (Timer <= 10) {
+    if (Timer <= 15) {
       document.querySelector("#Timer").classList.add("timer-warning");
     }
   }
