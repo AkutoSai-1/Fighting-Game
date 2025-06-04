@@ -3,6 +3,25 @@
   src: url(../Fonts/DotGothic16-Regular.ttf);
 }
 
+html,
+body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(
+    to right,
+    #450000 20%,
+    #553000 50%,
+    #450000 100%
+  );
+}
+
 #Con {
   position: relative;
   display: inline-block;
